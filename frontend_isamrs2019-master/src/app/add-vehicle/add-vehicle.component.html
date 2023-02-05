@@ -1,0 +1,53 @@
+<body>
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form class="form" action="" method="post">
+                            <h3 class="text-center text-info">New Vehicle</h3>
+                            <div class="form-group">
+                                <label for="model" class="text-info">Model:</label><br>
+                                <input type="text"  id="model" name="model" class="form-control" [ngClass]="{'is-invalid' : submitted && f.model.errors}" [(ngModel)]="this.vehicle.model" />
+                            </div>
+                            <div class="form-group">
+                                <label for="gearBox" class="text-info">GearBox:</label><br>
+                                <input type="text" name="gearBox" class="form-control"  [(ngModel)]="this.vehicle.gearBox">
+                            </div>
+                            <div class="form-group">
+                                <label for="year" class="text-info">Year:</label><br>
+                                <input type="text" id="year" name="year" placeholder="" class="form-control" [(ngModel)]="this.vehicle.godinaProizvodnje">
+                            </div>
+                            <div class="form-group">
+                                <label for="numOfSeats" class="text-info">Number of seats:</label><br>
+                                <input type="text" id="numOfSeats" name="numOfSeats" placeholder="" class="form-control" [(ngModel)]="this.vehicle.numOfSeats">
+                            </div>
+                            <div class="form-group">
+                                <label for="officeID" class="text-info">OfficeID:</label><br>
+                                <input type="text" id="idOffice" name="idOffice" placeholder="" class="form-control" [(ngModel)]="this.vehicle.idOffice">
+                            </div>
+                            <div class="form-group">
+                                <label for="location" class="text-info">Location:</label><br>
+                                <input type="text" id="location" name="location" placeholder="" class="form-control" [(ngModel)]="this.vehicle.cityLocation">
+                            </div>
+                            <div class="form-group">
+                                <label for="pricePerDay" class="text-info">Price per day:</label><br>
+                                <input type="text" id="pricePerDay" name="pricePerDay" placeholder="" class="form-control" [(ngModel)]="this.vehicle.pricePerDay">
+                            </div>
+                            <div class="form-group">
+                                    <label for="sale" class="text-info">Sale:</label><br>
+                                    <input type="text" id="sale" name="sale" placeholder="" class="form-control" [(ngModel)]="this.vehicle.sale">
+                                </div>
+                            <div class="form-group">
+                                <button (click)="addVehicle()"  class="btn btn-primary">Save vehicle</button> 
+                            </div>                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+

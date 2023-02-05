@@ -1,0 +1,31 @@
+<section id="tabs">
+  <div class="row">
+      <div class="col-xl-12 ">
+          <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                  <a class="nav-item nav-link active" id="nav-add-room-tab" data-toggle="tab" href="#nav-add-room" role="tab" aria-controls="nav-add-room" aria-selected="true">Add Room</a>
+                  <a class="nav-item nav-link" id="nav-show-rooms-tab" data-toggle="tab" href="#nav-show-rooms" role="tab" aria-controls="nav-show-rooms" aria-selected="false">Show rooms</a>
+                  <a class="nav-item nav-link" id="nav-edit-hotel-tab" data-toggle="tab" href="#nav-edit-hotel" role="tab" aria-controls="nav-edit-hotel" aria-selected="false">Update hotel info</a>
+                  <a class="nav-item nav-link" id="nav-edit-admin-tab" data-toggle="tab" href="#nav-edit-admin" role="tab" aria-controls="nav-edit-admin" aria-selected="false">Update my info</a>
+                  <button *ngIf="currentUserUsername" href="#nav-edit-admin" class="btn btn-primary">{{currentUserUsername}}</button> 
+                  <button *ngIf="currentUserUsername" (click)="logout()"  class="btn btn-primary">Logout</button> 
+
+                </div>
+          </nav>
+        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-add-room" role="tabpanel" aria-labelledby="nav-add-room-tab">
+                <app-add-room (roomAdded)="getRooms()" ></app-add-room>
+            </div>
+            <div class="tab-pane fade" id="nav-show-rooms" role="tabpanel" aria-labelledby="nav-show-rooms-tab">
+                <app-show-rooms-admin [hotel] = "hotel" [rooms]="rooms" (roomDeleted)="getRooms()"></app-show-rooms-admin>
+            </div>
+            <div class="tab-pane fade" id="nav-edit-hotel" role="tabpanel" aria-labelledby="nav-edit-hotel-tab">
+                <app-update-hotel [hotel] = "hotel"></app-update-hotel>
+            </div>
+            <div class="tab-pane fade" id="nav-edit-admin" role="tabpanel" aria-labelledby="nav-edit-admin-tab">
+                <app-update-admin ></app-update-admin>
+            </div>
+        </div>
+      </div>
+  </div>
+</section>

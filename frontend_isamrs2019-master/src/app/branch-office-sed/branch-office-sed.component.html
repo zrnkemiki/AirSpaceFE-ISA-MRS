@@ -1,0 +1,56 @@
+<body>
+  <div class="container">
+      <div class="table-wrapper">
+          <div class="table-title">
+              <div class="row">
+                  <div class="col-sm-8"><h2><b><a href="http://localhost:4200">Branch offices</a> </b></h2></div>
+                  <div class="col-sm-4">
+                      <div class="search-box">
+                          
+                          <input type="text" id="model" name="model"  class="form-control" placeholder="Search&hellip;" [(ngModel)]="this.searchParam">
+                          <button (click)='searchOffice(searchParam)' class="btn btn-success">Search offices </button>                        
+                          <button (click)='getOffices()' class="btn btn-success">See all offices</button>
+                          <button (click)='addOffice()' class="btn btn-success">Add office</button>
+                          
+                          
+                      </div>
+                  </div>
+              </div>
+            </div>
+   
+  <table  class="table table-bordered table-hover table-dark">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Office name</th>
+        <th>Address</th>
+        <th style="width: 15%">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+  
+      <tr *ngFor="let branchoffice of branchOffices; let i = index">
+        <td>
+          {{branchoffice.id}}.
+        </td>
+        <td>
+          {{branchoffice.officeName}}
+        </td>
+        <td>
+          {{branchoffice.address}}
+        </td>
+        <td>
+          <button (click)='deleteBranchOffice(branchoffice.id)' type="button" class="btn btn-danger">Delete</button>
+          <button type="button" (click)='editBranchOffice(branchoffice.id)' class="btn btn-warning">Edit</button>
+      </td>
+      </tr>
+  
+    </tbody>
+  </table>
+          <div class="clearfix">
+          </div>
+      </div>
+  </div>     
+  </body>
+  
+  

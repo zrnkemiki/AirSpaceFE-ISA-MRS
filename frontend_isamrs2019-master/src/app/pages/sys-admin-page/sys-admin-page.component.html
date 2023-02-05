@@ -1,0 +1,30 @@
+<section id="tabs">
+  <div class="row">
+      <div class="col-xl-12 ">
+          <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                  <a class="nav-item nav-link active" id="nav-add-hotels-tab" data-toggle="tab" href="#nav-add-hotels" role="tab" aria-controls="nav-add-hotels" aria-selected="true">Add hotel</a>
+                  <a class="nav-item nav-link" id="nav-add-airlines-tab" data-toggle="tab" href="#nav-add-airlines" role="tab" aria-controls="nav-add-airlines" aria-selected="false">Add airline</a>
+                  <a class="nav-item nav-link" id="nav-add-rent-a-cars-tab" data-toggle="tab" href="#nav-add-rent-a-cars" role="tab" aria-controls="nav-add-rent-a-cars" aria-selected="false">Add Rent-a-car service</a>
+                  <a class="nav-item nav-link" id="nav-add-rent-a-cars-tab" data-toggle="tab" href="#nav-add-admin" role="tab" aria-controls="nav-add-admin" aria-selected="false">Add admin</a>
+                  <button *ngIf="currentUserUsername" class="btn btn-primary">{{currentUserUsername}}</button> 
+                  <button *ngIf="currentUserUsername" (click)="logout()"  class="btn btn-primary">Logout</button> 
+                </div>
+          </nav>
+          <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-add-hotels" role="tabpanel" aria-labelledby="nav-add-hotels-tab">
+                <app-add-hotel></app-add-hotel>
+            </div>
+            <div class="tab-pane fade" id="nav-add-airlines" role="tabpanel" aria-labelledby="nav-add-airlines-tab">
+                <app-add-airline></app-add-airline>
+            </div>
+              <div class="tab-pane fade" id="nav-add-rent-a-cars" role="tabpanel" aria-labelledby="nav-add-rent-a-cars-tab">
+                <app-add-rentacar></app-add-rentacar>
+              </div>
+              <div class="tab-pane fade" id="nav-add-admin" role="tabpanel" aria-labelledby="nav-add-admin">
+                <app-add-admin></app-add-admin>
+              </div>
+            </div>
+      </div>
+  </div>
+</section>

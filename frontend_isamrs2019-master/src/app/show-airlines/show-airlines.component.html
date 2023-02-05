@@ -1,0 +1,25 @@
+<h4 *ngIf="!airlines || airlines.length===0">&nbsp;&nbsp;There are currently no airlines.</h4>
+<div class="table-responsive" *ngIf="airlines && airlines.length > 0">
+  <br>
+    <div *ngFor="let airline of airlines" >
+        <div class="card" >
+              <div class="card-header">
+                    Airline name: &nbsp;&nbsp; {{airline.name}}
+              </div>
+              <p class="card-text">
+                    Description: &nbsp;&nbsp; {{airline.description}}
+              </p>
+              <p class="card-text">
+                  City: &nbsp;&nbsp; {{airline.city}}
+              </p>    
+              <p class="card-text">
+                  State: &nbsp;&nbsp; {{airline.state}}
+              </p>
+              <p class="card-text">
+                  Street: &nbsp;&nbsp; {{airline.street}}
+              </p>
+              <button id="show_flights" class="btn btn-primary" (click)="show_flights(airline.name)"> Show flights</button>
+              <br>
+      </div>
+  </div>
+</div>

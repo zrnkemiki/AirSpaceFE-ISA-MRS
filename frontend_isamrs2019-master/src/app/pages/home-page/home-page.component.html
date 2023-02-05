@@ -1,0 +1,31 @@
+<section id="tabs">
+  <div class="row">
+      <div class="col-xl-12 ">
+          <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                  <a class="nav-item nav-link active" id="nav-show-hotels-tab" data-toggle="tab" href="#nav-show-hotels" role="tab" aria-controls="nav-show-hotels" aria-selected="true">Hotels</a>
+                  <a class="nav-item nav-link" id="nav-show-airlines-tab" data-toggle="tab" href="#nav-show-airlines" role="tab" aria-controls="nav-show-airlines" aria-selected="false">Airlines</a>
+                  <a class="nav-item nav-link" id="nav-show-rent-a-cars-tab" data-toggle="tab" href="#nav-show-rent-a-cars" role="tab" aria-controls="nav-show-rent-a-cars" aria-selected="false">Rent-a-cars</a>
+                  <button *ngIf="!currentUserUsername" (click)="login()"  class="btn btn-primary">Log in</button> 
+                  <button *ngIf="!currentUserUsername" (click)="register()"  class="btn btn-primary">Registration</button> 
+                  <button *ngIf="currentUserUsername" (click)="myRentaCarReservations()"  class="btn btn-primary"> My rentaCar Reservations</button> 
+                  <button *ngIf="currentUserUsername" (click)="myHotelReservations()"  class="btn btn-primary"> My hotel Reservations</button> 
+                  <button *ngIf="currentUserUsername" (click)="profileView()"  class="btn btn-primary">{{currentUserUsername}}</button> 
+                  <button *ngIf="currentUserUsername" (click)="logout()"  class="btn btn-primary">Logout</button> 
+              </div>
+          </nav>
+          <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-show-hotels" role="tabpanel" aria-labelledby="nav-show-hotels-tab">
+                <app-show-hotels></app-show-hotels>
+            </div>
+            <div class="tab-pane fade" id="nav-show-airlines" role="tabpanel" aria-labelledby="nav-show-airlines-tab">
+                <app-show-airlines></app-show-airlines>
+            </div>
+              <div class="tab-pane fade" id="nav-show-rent-a-cars" role="tabpanel" aria-labelledby="nav-show-rent-a-cars-tab">
+                <app-show-rentacars></app-show-rentacars>
+              </div>
+            
+            </div>
+      </div>
+  </div>
+</section>

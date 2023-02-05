@@ -1,0 +1,51 @@
+<body>
+  <div class="container">
+      <div class="table-wrapper">
+          <div class="table-title">
+              <div class="row">
+                  <div class="col-sm-8" ><h2><b>My reservations</b></h2></div>
+                  </div>
+              </div>
+          </div>
+          <div>  <h4 *ngIf="!reservations || reservations.length===0">&nbsp;&nbsp;Nemate nijednu rezervaciju u ovom trenutku</h4> </div>
+
+   
+  <table  class="table table-bordered table-hover table-dark"  *ngIf="reservations && reservations.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Room</th>
+        <th>Date from</th>
+        <th>Date until</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+  
+      <tr *ngFor="let reservation of reservations; let i = index">
+        <td>
+          {{reservation.id}}.
+        </td>
+        <td>
+          {{reservation.hotelName}}
+        </td>
+        <td>
+          {{reservation.dateFrom | date}}
+        </td>
+        <td>
+          {{reservation.dateUntil | date}}
+        </td>
+        <td>
+          <button type="button" (click)='cancelReservation(reservation.id, reservation.dateFrom)'class="btn btn-warning">Cancel</button>
+      </td>
+      </tr>
+    </tbody>
+
+  </table>
+  <div class="col-sm-8" ><h2><b><a href="http://localhost:4200">Povratak na pocetnu stranicu</a> </b></h2></div>
+          <div class="clearfix">
+          </div>
+      </div>   
+  </body>
+  
+  

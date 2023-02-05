@@ -1,0 +1,8 @@
+#timepicker2 { 
+    minuteStep: 1;
+    template : 'modal';
+    appendWidgetTo: 'body';
+    showSeconds: true;
+    showMeridian: false;
+    defaultTime: false
+}

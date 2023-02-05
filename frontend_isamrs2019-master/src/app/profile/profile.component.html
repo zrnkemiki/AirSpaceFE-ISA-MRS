@@ -1,0 +1,153 @@
+<body>
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-5">
+                    <div id="login-box" class="col-md-10">
+                        <form class="form" method="put">
+                      
+                            <div class="form-group">
+                                  <h2 class="text-center text-info">Profile</h2>
+  
+                                  <table width="400">
+                                      <tbody>
+  
+                                          <tr>
+  
+                                              <td>
+                                                  <label for="fn" class="text-info">First name:</label><br>
+                                              </td>
+  
+                                              <td>
+                                                  <input type="text"  id="fn" name="fn" class="form-control" [disabled]="this.availability[0]" [(ngModel)]="editUser.name"/>
+  
+                                              </td>
+                                              <td>
+                                                      <button class="btn btn-primary" (click)="changeAvailability('0')">
+                                                              <span class="fa fa-edit" aria-hidden="true"></span>
+                                                      </button>
+                                              </td>
+                                          </tr>
+  
+                                          <tr>
+  
+                                              
+                                              <td>
+                                                      <label for="ln" class="text-info">Last name:</label><br>
+                                                      </td>
+  
+                                              <td >
+                                                  <input type="text"  id="ln" name="ln" class="form-control" [disabled]="this.availability[1]" [(ngModel)]="editUser.surname"/>
+  
+                                              </td>
+                                              <td>
+                                                      <button class="btn btn-primary" (click)="changeAvailability('1')">
+                                                              <span class="fa fa-edit" aria-hidden="true"></span>
+                                                      </button>
+                                              </td>
+                                          </tr>
+  
+                                          <tr>                                        
+                                              <td>
+                                                      <label for="email" class="text-info">Email:</label><br>
+                                                      </td>
+                                              <td>
+                                                  <input type="text"  id="email" name="email" class="form-control" [disabled]="this.availability[2]" [(ngModel)]="editUser.email"/>
+                                              </td>
+                                              <td>
+                                                      <button class="btn btn-primary" (click)="changeAvailability('2')">
+                                                              <span class="fa fa-edit" aria-hidden="true"></span>
+                                                      </button>
+                                              </td>
+                                          </tr>
+  
+                                          <tr>                                        
+                                                  <td>
+                                                          <label for="pass" class="text-info">Password:</label><br>
+                                                          </td>
+                                                  <td>
+                                                      <input type="password" id="pass" name="pass" class="form-control" [disabled]="this.availability[3]" [(ngModel)]="editUser.password"   (ngModelChange)="checkPasswordValidation()"/>
+                                                  </td>
+                                                  <td>
+                                                          <button class="btn btn-primary" (click)="changeAvailability('3')">
+                                                                  <span class="fa fa-edit" aria-hidden="true"></span>
+                                                          </button>
+                                                  </td>
+                                          </tr>
+  
+                                          <tr *ngIf="this.availability[3] == false">                                        
+                                                  <td>
+                                                          <label for="rp" class="text-info">Repeat password:</label><br>
+                                                          </td>
+                                                  <td>
+                                                      <input type="password" id="rp" name="rp" class="form-control" [(ngModel)]="passwordRepeated" (ngModelChange)="checkPasswordValidation()"/>
+                                                  </td>
+  
+                                          </tr>
+  
+                                          <tr>                             
+                                              <td>
+                                                      <label for="number" class="text-info">Phone number:</label><br>
+                                                      </td>
+                                              <td>
+                                                  <input type="text"  id="number" name="number" class="form-control" [disabled]="this.availability[4]" [(ngModel)]="editUser.number"/>
+                                              </td>
+                                              <td>
+                                                      <button class="btn btn-primary" (click)="changeAvailability('4')">
+                                                              <span class="fa fa-edit" aria-hidden="true"></span>
+                                                      </button>
+                                              </td>
+                                          </tr>
+  
+  
+                                          <tr>
+                                              <td>
+                                                  <label for="address" class="text-info">City:</label><br>
+                                              </td>
+                                              
+                                              <td>
+                                                  <input type="text"  id="address" name="address" class="form-control" [disabled]="this.availability[5]" [(ngModel)]="editUser.city"/>
+  
+                                              </td>
+                                              <td>
+                                                      <button class="btn btn-primary" (click)="changeAvailability('5')">
+                                                              <span class="fa fa-edit" aria-hidden="true"></span>
+                                                      </button>
+                                              </td>
+                                          </tr>
+  
+                                   
+  
+  
+                                      </tbody>
+                                      
+  
+                                  </table>
+
+                                  <div>
+                                      <div class="alert alert-success"
+                                      *ngIf="this.passwordsEqual === true && this.availability[3] === false">Passwords match</div>
+
+                                      <div class="alert alert-danger"
+                                      *ngIf="this.passwordsEqual === false && this.availability[3] === false">Passwords don't match</div>
+                                  </div>
+
+                                  <p>
+                                      {{this.s}}
+                                  </p>
+                                
+  
+                            </div>
+                            <div class="form-group">
+                                <button (click)="editRegisterUser()"  class="btn btn-primary">Save changes</button> 
+                            </div>                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+  
+  </body>
+  

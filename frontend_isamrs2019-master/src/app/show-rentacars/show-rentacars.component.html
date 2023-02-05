@@ -1,0 +1,39 @@
+<h4 *ngIf="!rentacars || rentacars.length===0">&nbsp;&nbsp;There are currently no rentacars.</h4>
+<div class="table-responsive" *ngIf="rentacars && rentacars.length > 0">
+  <br>
+    <div *ngFor="let rentacar of rentacars" >
+        <div class="card" >
+              <div class="card-header">
+                  Rentacar name: &nbsp;&nbsp; {{rentacar.name}}
+              </div>
+              <p class="card-text">
+                  Description: &nbsp;&nbsp; {{rentacar.description}}
+              </p>
+              <p class="card-text">
+                  Street: &nbsp;&nbsp; {{rentacar.street}}
+              </p>
+              <button id="show_vehicles" class="btn btn-primary" (click)="vehicleReservation(rentacar.id)"> Vehicle reservation</button>
+              <br>
+      </div>
+  </div>
+
+</div>
+<div *ngIf="rentaCarAdmin">
+        <div class="card" >
+              <div class="card-header">
+                  Rentacar name: &nbsp;&nbsp; {{rentaCarAdmin.name}}
+              </div>
+              <p class="card-text">
+                  Description: &nbsp;&nbsp; {{rentaCarAdmin.description}}
+              </p>
+
+              <p class="card-text">
+                  Street: &nbsp;&nbsp; {{rentaCarAdmin.street}}
+              </p>
+              <button id="show_branch_offices" class="btn btn-primary" (click)="showBranchOffices(rentaCarAdmin.name)"> Show branch offices</button>              
+              <button id="show_vehicles" class="btn btn-primary" (click)="showVehicles(rentaCarAdmin.name)"> Show vehicles</button>
+              <button id="edit-rentaCar" class="btn btn-primary" (click)="editRentaCar(rentaCarAdmin.id)"> Edit Rent-a-car info</button>             
+              <button id="show_report" class="btn btn-primary" (click)="rentaCarReport(rentaCarAdmin.id)"> Show report</button>                       
+              <br>
+      </div>
+</div>
