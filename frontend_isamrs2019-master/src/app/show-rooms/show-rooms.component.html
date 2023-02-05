@@ -1,0 +1,23 @@
+<h4 *ngIf="!rooms || rooms.length===0">&nbsp;&nbsp;There are currently no rooms.</h4>
+<div class="table-responsive" *ngIf="rooms && rooms.length > 0">
+  <br>
+      
+      <div *ngFor="let room of rooms" >
+        <div class="card" >
+              <div class="card-header">
+                  Room type: &nbsp;&nbsp; {{room.type}}
+              </div>
+              <p class="card-text">
+                  Number of beds: &nbsp;&nbsp; {{room.numOfBeds}}
+              </p>
+              <p class="card-text">
+                Room type: &nbsp;&nbsp; {{room.roomType}}
+              </p>    
+              <p class="card-text">
+                  price: &nbsp;&nbsp; 1680
+              </p>
+              <button id="reserve_room" class="btn btn-primary" (click)="reserve(room.id)"> reserve</button>
+              <br>
+      </div>
+  </div>
+</div>

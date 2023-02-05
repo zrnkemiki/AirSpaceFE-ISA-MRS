@@ -1,0 +1,23 @@
+<div class="col-md-6 user-container">
+  <h2 class="text-center">Edit User</h2>
+  <form class = "form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" placeholder="username" name="username" class="form-control"  [(ngModel)]="this.adminUpdated.username" id="username" readonly="true">
+    </div>
+    <div class="form-group">
+      <label for="email">&nbsp;&nbsp;Email</label>
+      <input type="email"   class="form-control" [(ngModel)]="this.adminUpdated.email" id="email" name="email"/>
+    </div>
+    <div class="form-group">
+      <label for="oldPassword">Old Password:</label>
+      <input type="password"  placeholder="Insert old password"  [(ngModel)]="this.adminUpdated.oldPassword" name="oldPassword" class="form-control" id="oldPassword">
+    </div>
+    <div class="form-group">
+      <label for="newPassword">New Password:</label>
+      <input type="password"  placeholder="Insert new password"  [(ngModel)]="this.adminUpdated.newPassword" name="newPassword" class="form-control" id="newPassword">
+    </div>
+
+    <input type="submit" class="btn btn-primary btn-lg" value="Update"/>
+  </form>
+</div>

@@ -1,0 +1,90 @@
+<body>
+<div class="container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8" *ngIf="rentaCarAdmin"><h2><b><a href="http://localhost:4200">VehicleDetails</a> </b></h2></div>
+                <div class="col-sm-8" *ngIf="!rentaCarAdmin"><h2><b><a href="http://localhost:4200">Available vehicles</a> </b></h2></div>
+                <div class="col-sm-4">
+                    <div class="search-box">
+                        
+                        <input type="text" *ngIf="rentaCarAdmin"  id="model" name="model"  class="form-control" placeholder="Search&hellip;" [(ngModel)]="this.searchParam">
+                        <button (click)='searchVehicleModel(searchParam)' *ngIf="rentaCarAdmin" class="btn btn-success">Search model </button>
+                        <button (click)='searchVehicleGearBox(searchParam)' *ngIf="rentaCarAdmin"class="btn btn-success">Search gearbox </button>
+                       
+                        <button (click)='getVehicles()' *ngIf="rentaCarAdmin" class="btn btn-success">See all vehicles</button>
+                        <button (click)='addVehicle()' *ngIf="rentaCarAdmin" class="btn btn-success">Add vehicle</button>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+          </div>  
+          <div><h4 *ngIf="!vehicles || vehicles.length===0">&nbsp;&nbsp;There are currently no vehicles available.</h4></div>
+<table  class="table table-bordered table-hover table-dark">
+  <thead>
+    <tr>
+      <th *ngIf="rentaCarAdmin">ID</th>
+      <th>Model</th>
+      <th>Number of seats</th>
+      <th>GearBox</th>
+      <th>Year</th>
+      <th>Price per day</th>
+      <th *ngIf="!rentaCarAdmin">  Total Price without sale </th>
+      <th *ngIf="rentaCarAdmin">  Available </th>
+      <th>Vehicle Location</th>
+      <th>Sale</th>
+      <th style="width: 15%">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let vehicle of vehicles; let i = index">
+      <td *ngIf="rentaCarAdmin">
+        {{vehicle.id}}.
+      </td>
+      <td>
+        {{vehicle.model}}
+      </td>
+      <td>
+        {{vehicle.numOfSeats}}
+      </td>
+      <td>
+        {{vehicle.gearBox}}
+      </td>
+      <td>
+        {{vehicle.godinaProizvodnje}}
+        </td>
+      <td>
+        {{vehicle.pricePerDay}}e
+      </td>
+      <td *ngIf="!rentaCarAdmin" >
+        {{broj * vehicle.pricePerDay}}e
+      </td>
+      <td *ngIf="rentaCarAdmin">
+        {{vehicle.available}}
+      </td>
+      <td>
+        {{vehicle.cityLocation}}
+      </td>
+      <td >
+          {{vehicle.sale}}%
+        </td>
+      <td>
+        <button (click)='deleteVehicle(vehicle.id)' *ngIf="rentaCarAdmin" type="button" class="btn btn-danger">Delete</button>
+        <button type="button" (click)='editVehicle(vehicle.id)' *ngIf="rentaCarAdmin" class="btn btn-warning">Edit</button>
+        <button type="button" (click)='reserveVehicle(vehicle.id)' *ngIf="registeredUser" class="btn btn-warning">Reserve</button>
+    </td>
+    </tr>
+
+  </tbody>
+</table>
+        <div class="clearfix">
+        </div>
+    </div>
+    
+</div>   
+
+
+</body>
+
